@@ -1,0 +1,31 @@
+version: "3.7"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - "./common.env"
+      - "./pihole/pihole.env"
+    volumes:
+      - './pihole/etc-pihole:/etc/pihole'
+      - './pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    cap_add:
+      - NET_ADMIN # Recommended but not required (DHCP needs NET_ADMIN)
+
+  homebridge:
+    container_name: hb
+    image: oznu/homebridge:latest
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - "./common.env"
+      - "./homebridge/hb.env"
+    volumes:
+      - ./homebridge/config:/homebridge/

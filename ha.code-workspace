@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"remote.SSH.defaultForwardedPorts": [
+		]
+	}
+}

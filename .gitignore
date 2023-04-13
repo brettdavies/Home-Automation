@@ -1,0 +1,5 @@
+.DS_Store
+/pihole/etc-pihole
+/pihole/etc-dnsmasq.d
+/homebridge/config
+*.env
