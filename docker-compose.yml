@@ -49,7 +49,7 @@ services:
         - SETGID
         - DAC_OVERRIDE
         - NET_RAW
-      mem_reservation: 64m
+      # mem_reservation: 64m # disabled as it is unsupported in current environment
       labels:
         - "traefik.enable=false"
         - "com.centurylinklabs.watchtower.enable=true"
